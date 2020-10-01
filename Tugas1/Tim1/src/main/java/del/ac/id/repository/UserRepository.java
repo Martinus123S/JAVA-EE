@@ -15,4 +15,7 @@ public interface UserRepository extends JpaRepository<User,String> {
             "roles on user_role.role_id = roles.id",
     nativeQuery = true)
     List<User> findAll();
+
+    User findAllByUsername(String username);
+    User findAllByUsernameAndPassword(String username,String password);
 }

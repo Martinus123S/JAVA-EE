@@ -8,21 +8,21 @@
 <div align="center">
     <h1>Product List</h1>
     <a href="/new">Create New Product</a>
-    <br/><br/>
-    <table border="1" cellpadding="10">
-        <thead>
-        <tr>
-            <th>Product ID</th>
-            <th>Name</th>
-            <th>Brand</th>
-            <th>Made In</th>
-            <th>Price</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="product,status : ${listuser}">
-            <td th:text="${status.count}">Product ID</td>
+                <br/><br/>
+                <table border="1" cellpadding="10">
+                    <thead>
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Name</th>
+                        <th>Brand</th>
+                        <th>Made In</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="product,status : ${listuser}">
+                        <td th:text="${status.count}">Product ID</td>
             <td th:text="${product}">Name</td>
             <td th:text="${product.username}">Brand</td>
            <span th:each="roles : ${product.roles}">

@@ -52,4 +52,17 @@ public class UserServiceImpl implements UserService {
     public List<User> findAll() {
         return userRepository.findAll();
     }
+
+    @Override
+    public int findByUser(String username) {
+        User user = userRepository.findAllByUsername(username);
+        if(user != null)return 1;
+        return 0;
+    }
+
+    @Override
+    public User checkLogin(String username, String password) {
+
+        return userRepository.findAllByUsernameAndPassword(username,password);
+    }
 }

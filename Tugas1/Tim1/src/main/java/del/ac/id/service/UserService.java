@@ -12,7 +12,10 @@ import java.util.List;
 
 public interface UserService {
 
-    public void save(RegisterRequest request);
-    public Roles checkRole(String role);
-    public List<User> findAll();
+     void save(RegisterRequest request);
+     Roles checkRole(String role);
+     List<User> findAll();
+     int findByUser(String username);
+
+     User checkLogin(String username,String password);
 }
