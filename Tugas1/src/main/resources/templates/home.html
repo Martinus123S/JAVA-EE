@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Management User</title>
+</head>
+<body>
+    <div align="center">
+        <form th:action="@{/save}" th:object="${user}" method="post">
+            <table>
+                <tr>
+                    <td>
+                        Username
+                    </td>
+                    <td>
+                        <input type="text" th:field="*{username}"/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Password
+                    </td>
+                    <td>
+                        <input type="password" th:field="*{password}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Login</button></td>
+                </tr>
+            </table>
+        </form>
+        <a href="#" th:action="@{/register}"> Register</a>
+    </div>
+</body>
+</html>
