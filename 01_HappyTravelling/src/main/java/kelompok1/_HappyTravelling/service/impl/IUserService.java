@@ -19,4 +19,14 @@ public class IUserService implements UserService {
     public Boolean existByuser(String username) {
         return userRepository.existsByUsername(username);
     }
+
+    @Override
+    public Boolean isSuccessLogin(String username, String password) {
+        return userRepository.existsByUsernameAndPassword(username,password);
+    }
+
+    @Override
+    public User findUser(String username, String password) {
+        return userRepository.findByUsernameAndPassword(username,password);
+    }
 }

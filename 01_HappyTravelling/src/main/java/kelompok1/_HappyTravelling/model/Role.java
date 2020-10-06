@@ -7,8 +7,6 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="t_role")
-@NoArgsConstructor
-@Data
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,4 +14,23 @@ public class Role {
 
     @Column(name = "role_name")
     private String roleName;
+
+    public Role() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
 }
