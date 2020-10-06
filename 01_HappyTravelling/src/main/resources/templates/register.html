@@ -13,27 +13,15 @@
 </head>
 <body>
 <div class="card bg-light">
+    <div th:if="${needUser!=null}" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong th:text="${needUser}"></strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
     <article class="card-body mx-auto" style="max-width: 400px;">
-        <div th:if="${verify!=null}" class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong th:text="${verify}"></strong>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div th:if="${needLogin!=null}" class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong th:text="${needLogin}"></strong>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div th:if="${success!=null}" class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong th:text="${success}"></strong>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <h4 class="card-title mt-3 text-center">Login</h4>
-        <form action="#" th:action="@{/login}" th:object="${user}"
+        <h4 class="card-title mt-3 text-center">Register User</h4>
+        <form action="#" th:action="@{/prosesReg}" th:object="${user}"
               method="post">
             <div class="form-group input-group">
                 <div class="input-group-prepend">
@@ -41,8 +29,16 @@
 </span>
                 </div>
                 <input name="" class="form-control" placeholder="Username" type="text"
-                       th:field="*{username}" th:classappend="${#fields.hasErrors('username')} ? 'error-field'" required>
+                       th:field="*{username}">
             </div> <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+             <span class="input-group-text"> <i class="fa fa-user"></i>
+            </span>
+                </div>
+                <input class="form-control" placeholder="Create FullName"
+                       type="text" th:field="*{fullName}">
+            </div>
 
             <div class="form-group input-group">
                 <div class="input-group-prepend">
@@ -50,16 +46,16 @@
 </span>
                 </div>
                 <input class="form-control" placeholder="Create password"
-                       type="password" th:field="*{password}" th:classappend="${#fields.hasErrors('password')} ? 'error-field'" required>
-            </div> <!-- form-group// -->
+                       type="password" th:field="*{password}">
+            </div>
+            <!-- form-group// -->
 
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block"> Login
+                <button type="submit" class="btn btn-primary btn-block"> Create Account
                 </button>
-            </div> <!-- form-group// -->
-            <p class="text-center">Not Have an account? <a th:href="@{/register}">Register</a>
             </p>
         </form>
+        <a href="/" class="btn btn-outline-danger">Kembali</a>
     </article>
 </div> <!-- card.// -->
 
